@@ -1,4 +1,6 @@
 torch
+os
+gdown
 torchvision
 matplotlib
 numpy
