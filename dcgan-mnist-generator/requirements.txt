@@ -3,6 +3,4 @@ gdown==5.1.0
 numpy
 matplotlib
 torch==2.7.1+cpu
-torchvision==0.18.1+cpu
 --extra-index-url https://download.pytorch.org/whl/cpu
-
