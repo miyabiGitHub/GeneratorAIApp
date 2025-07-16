@@ -9,6 +9,21 @@ latent_dim = 100
 image_size = 28
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+def ensure_generator_exists():
+    model_path = "models/generator.pth"
+    if not os.path.exists(model_path):
+        st.warning("モデルが見つかりません。Google Drive からダウンロード中…")
+
+        # ここにDriveのファイルIDを挿入
+        file_id = "14ZDV5B0J_K4y_B1YDucH6Nle2HXty_V-"
+        url = f"https://drive.google.com/uc?id={file_id}"
+        os.makedirs("models", exist_ok=True)
+        gdown.download(url, model_path, quiet=False)
+
+        st.success("✅ モデルのダウンロードが完了しました！")
+
+ensure_generator_exists()
+
 # --- Generator定義（dcgan.pyと同じ） ---
 class Generator(nn.Module):
     def __init__(self):
